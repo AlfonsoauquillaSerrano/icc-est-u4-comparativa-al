@@ -34,11 +34,11 @@ public class App {
         Resultado rQuickSort  = BenchMarking.medirTiempo(funcionQuickSort, "QuickSort", escenario, cantidad);
         System.out.println(rQuickSort);
 
-        System.out.println();
+        System.out.println("");
 
-        int cantidadEscenario2 = cantidad + 1;
+        int cantidad2 = cantidad + 1;
         metodos.quickSort(base, 0, base.length - 1);
-        Persona[] baseCasiOrdenada = new Persona[cantidadEscenario2];
+        Persona[] baseCasiOrdenada = new Persona[cantidad2];
 
         for (int i = 0; i < base.length; i++) {
             baseCasiOrdenada[i] = base[i];
@@ -55,7 +55,7 @@ public class App {
         };
         
 
-        Resultado rInsercion2 = BenchMarking.medirTiempo(funcionInsercion2, "Insercion", "Casi ordenada + 1 persona", cantidad);
+        Resultado rInsercion2 = BenchMarking.medirTiempo(funcionInsercion2, "Insercion", "Casi ordenada + 1 persona", cantidad2);
         System.out.println(rInsercion2);
 
         Callable<Void> funcionQuickSort2 = () ->{
@@ -63,7 +63,7 @@ public class App {
             return null;
 
         };
-        Resultado rQuickSort2  = BenchMarking.medirTiempo(funcionQuickSort2, "QuickSort", "Casi ordenada + 1 persona", cantidad);
+        Resultado rQuickSort2  = BenchMarking.medirTiempo(funcionQuickSort2, "QuickSort", "Casi ordenada + 1 persona", cantidad2);
         System.out.println(rQuickSort2);
         }
         public static int[] generate(int size){
