@@ -21,6 +21,8 @@ public class SortPersonaMethods {
         if(inicio<fin){
             int indicePivote= particionar(personas,inicio,fin);
 
+            quickSort(personas, inicio, indicePivote-1);
+            quickSort(personas,indicePivote+1 , fin);
         }
     }
 
@@ -28,7 +30,7 @@ public class SortPersonaMethods {
         Persona pivote= personas[fin];
         int i= inicio-1;
 
-        for (int j = 0; j < fin; j++) {
+        for (int j = inicio; j < fin; j++) {
             if (personas[j].getCriterioOrdenamiento()<= pivote.getCriterioOrdenamiento()) {
                 i++;
                 intercambiar(personas,i,j);

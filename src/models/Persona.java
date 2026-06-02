@@ -38,5 +38,11 @@ for (int i = 0; i < nombre.length(); i++) {
 }
 return edad*100000+valorNombre;
 }
+
+
+@Override
+public String toString() {
+    return "Persona [nombre=" + nombre + ", edad=" + edad + "]";
+}
     
 }

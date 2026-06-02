@@ -43,6 +43,10 @@ public class Resultado {
         this.tiempoNano = tiempoNano;
         this.tiempoMilis = tiempoNano/1_000_000.0;
     }
+    @Override
+    public String toString() {
+        return  escenario +"|"+algoritmo + "|" + sample +  "|" + tiempoMilis+" ms";
+    }
     
     
 }
