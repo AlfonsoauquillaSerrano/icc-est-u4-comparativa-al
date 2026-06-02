@@ -8,7 +8,7 @@ public class App {
     
     public static void main(String[] args) throws Exception {
         
-       int cantidad = 10_000;
+       int cantidad = 100_000;
        String escenario = "Desordenado";
 
        Persona[] base = generarPersonas(cantidad);

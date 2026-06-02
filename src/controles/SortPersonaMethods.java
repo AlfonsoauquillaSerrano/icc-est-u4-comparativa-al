@@ -27,6 +27,9 @@ public class SortPersonaMethods {
     }
 
     private int particionar(Persona [] personas,int inicio,int fin){
+        int numAleatorio = inicio +(int)(Math.random() * (fin - inicio + 1));
+        intercambiar(personas, numAleatorio, fin);
+        
         Persona pivote= personas[fin];
         int i= inicio-1;
 
