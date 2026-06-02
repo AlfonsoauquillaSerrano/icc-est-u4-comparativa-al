@@ -8,7 +8,7 @@ public class App {
     
     public static void main(String[] args) throws Exception {
         
-       int cantidad = 10000;
+       int cantidad = 10_000;
        String escenario = "Desordenado";
 
        Persona[] base = generarPersonas(cantidad);
@@ -33,6 +33,38 @@ public class App {
         };
         Resultado rQuickSort  = BenchMarking.medirTiempo(funcionQuickSort, "QuickSort", escenario, cantidad);
         System.out.println(rQuickSort);
+
+        System.out.println();
+
+        int cantidadEscenario2 = cantidad + 1;
+        metodos.quickSort(base, 0, base.length - 1);
+        Persona[] baseCasiOrdenada = new Persona[cantidadEscenario2];
+
+        for (int i = 0; i < base.length; i++) {
+            baseCasiOrdenada[i] = base[i];
+        }
+        baseCasiOrdenada[baseCasiOrdenada.length - 1] = new Persona("Persona nueva", (int)(Math.random() * 101));
+        Persona[] copiaInsercion2= baseCasiOrdenada.clone();
+        Persona[] copiaQuickSort2= baseCasiOrdenada.clone();
+
+        SortPersonaMethods metodos2 = new SortPersonaMethods();
+        Callable<Void> funcionInsercion2 = () ->{
+            metodos2.insertionSort(copiaInsercion2);            
+            return null;
+
+        };
+        
+
+        Resultado rInsercion2 = BenchMarking.medirTiempo(funcionInsercion2, "Insercion", "Casi ordenada + 1 persona", cantidad);
+        System.out.println(rInsercion2);
+
+        Callable<Void> funcionQuickSort2 = () ->{
+            metodos.quickSort(copiaQuickSort2, 0,copiaQuickSort2.length-1 );             
+            return null;
+
+        };
+        Resultado rQuickSort2  = BenchMarking.medirTiempo(funcionQuickSort2, "QuickSort", "Casi ordenada + 1 persona", cantidad);
+        System.out.println(rQuickSort2);
         }
         public static int[] generate(int size){
         int [] array = new int [size];
